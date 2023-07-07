@@ -1,4 +1,4 @@
-function footer(){
+function Footer(){
     return(
         <footer className="bg-dark text-light mt-auto py-4">
             <div className="container py-4">
@@ -24,4 +24,4 @@ function footer(){
     );
 }
 
-export default footer;
+export default Footer;

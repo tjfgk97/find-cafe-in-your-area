@@ -1,6 +1,6 @@
 import Layout from "../component/Layout/Layout";
 
-export function main() {
+function MainPage() {
     return (
         <Layout>
             <main>
@@ -37,8 +37,8 @@ export function main() {
                         <span className="visually-hidden">Next</span>
                     </button>
                 </div>
-                <!--인사말-->
-                <div className="bg-light" style="background-image: url(img/dog.png) no-repeat; background-size: cover;">
+
+                <div className="bg-light" style={{backgroundImage:"url(/image/dog.png)", backgroundRepeat:"no-repeat", backgroundSize:"cover"}}>
                     <div className="p-3">
                         <div className="fw-bold">Welcome ♡</div>
                         <div className="fs-6_5 px-3 pt-1"><span>"</span>
@@ -64,7 +64,7 @@ export function main() {
                             </div>
                     </a>
                 </div>
-                <!--콘텐츠-->
+
                 <div className="container mt-4">
                     <div className="mb-3">
                         <a href="./comparison.html" target="_self">
@@ -123,7 +123,7 @@ export function main() {
                         </a>
                     </div>
                 </div>
-                <!--찾아오시는길-->
+
                 <div className="my-4 px-3">
                     <img className="img-fluid" src="img/map.jpg" alt="Image Description"/>
                         <div className="mt-3 fw-bold"><i className="bi bi-map me-1"></i>찾아오시는 길</div>
@@ -134,3 +134,5 @@ export function main() {
         </Layout>
     );
 }
+
+export default MainPage;

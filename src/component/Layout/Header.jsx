@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-function header(url) {
+function Header(url) {
     const hospitalUrl = url;
     const [member, setMember] = useState({});
     const hospital_name = document.getElementById('hospital_name');
@@ -30,7 +30,7 @@ function header(url) {
                         </path>
                     </svg>
                 </button>
-                <div className="navbar-collapse collapse" id="bdNavbar" style="">
+                <div className="navbar-collapse collapse" id="bdNavbar">
                     <ul className="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
                         <li className="nav-item col-6 col-md-auto">
                             <a className="nav-link p-2" href="./support.html">
@@ -75,4 +75,4 @@ function header(url) {
     );
 }
 
-export default header;
+export default Header;

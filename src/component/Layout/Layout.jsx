@@ -1,11 +1,14 @@
+import Header from "./Header";
+import Footer from "./Footer";
+
 const Layout = (props) => {
     return (
         <div>
-            <header url={props.url}/>
+            <Header url={props.url}/>
             <main>
                 {props.children}
             </main>
-            <footer/>
+            <Footer/>
         </div>
     );
 }
