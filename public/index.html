@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!-- Title -->
+    <title>팻밀리 - 반려견주(펫가족)를 위한 통합 플랫폼</title>
+    <meta name="description" content="펫밀리, 펫밀리샵 - 펫보험금청구, 펫유전자검사, 펫보험비교, 펫카드">
+    <meta property="og:title" content="펫밀리, 펫밀리샵 - 반려견주(펫가족)를 위한 통합 플랫폼">
+    <meta property="og:description" content="펫밀리, 펫밀리샵 - 펫보험금청구, 펫유전자검사, 펫보험비교, 펫카드">
+    <meta property="og:site_name" content="펫밀리, 펫밀리샵">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:url" content="http://pet-mily.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="펫밀리">
+    <meta name="publisher" content="펫밀리">
+    <meta name="subject" content="통합 펫 플랫폼">
+    <meta name="locale" content="ko">
+    <meta name="naver-site-verification" content="1e9395eac99cc98f24bd56d8a0a9fcd0f0e46ee2" />
+    <meta name="google-site-verification" content="r5mEn45WZs2McFUzW4fonWlPPPq4s8nGCO83oWOT3tg" />
+    <link rel="canonical" href="http://pet-mily.com">
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -24,11 +42,56 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+      @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+      .btn-outline-pet:hover {
+        color: #fff !important;
+        background-color: #31ade2 !important;
+        border-color: #31ade2 !important;
+      }
+
+      .btn-outline-pet {
+        color: #31ade2 !important;
+        background-color: #fff !important;
+        border-color: #31ade2 !important;
+      }
+
+      .fs-6_5 {
+        font-size: 0.9rem !important;
+      }
+
+      .text-pet {
+        color: #31ade2;
+      }
+
+      .bg-pet {
+        background-color: #31ade2;
+      }
+
+      a {
+        text-decoration: none;
+        color: #444444;
+        cursor: pointer;
+      }
+
+      a:hover {
+        text-decoration: none;
+        color: #31ade2;
+      }
+
+      .petmily-customer-main {
+        width: 100%;
+        min-height: 100vh;
+        max-width: 600px;
+        position: relative;
+      }
+    </style>
   </head>
-  <body>
+  <body class="d-flex justify-content-center" style="font-family:'Noto Sans KR',sans-serif; background-image: url(image/bg_main.jpg);">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div class="petmily-customer-main" id="root"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
