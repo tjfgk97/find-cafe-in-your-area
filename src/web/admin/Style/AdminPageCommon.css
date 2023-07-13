@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+.fs-6_5 {
+    font-size: 0.9rem !important;
+}
+
+.text-ellipsis_line1 {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.word_break {
+    word-break: keep-all;
+    white-space: normal;
+}
+
+.side_width
+{
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
