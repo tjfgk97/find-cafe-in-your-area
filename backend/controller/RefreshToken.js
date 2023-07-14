@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken');
 const db = require('../models');
 
+const ACCESS_TOKEN_SECRET = "bocare2023withpetmily2023togetherwinaccesstoken";
+const REFRESH_TOKEN_SECRET = "bocare2023withpetmily2023togetherwinrefreshtoken";
+
 const refreshToken = async(req, res) => {
     try {
         const refreshToken = req.cookies.refreshToken;
@@ -11,10 +14,10 @@ const refreshToken = async(req, res) => {
             }
         });
         if(!adminInfo[0]) return res.sendStatus(403);
-        jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
+        jwt.verify(refreshToken, REFRESH_TOKEN_SECRET, (err, decoded) => {
             if(err) return res.sendStatus(403);
             const account = adminInfo[0].account;
-            const accessToken = jwt.sign({account}, process.env.ACCESS_TOKEN_SECRET,{
+            const accessToken = jwt.sign({account}, ACCESS_TOKEN_SECRET,{
                 expiresIn: '15s'
             });
             res.json({ accessToken });

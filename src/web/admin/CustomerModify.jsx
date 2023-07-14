@@ -1,17 +1,28 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect} from "react";
+import axios from "axios";
 
 function CustomerModify(){
     const {customerIdx} = useParams();
+    const navigate = useNavigate();
 
     useEffect(()=>{
         console.log(customerIdx);
     },[]);
 
+    const Logout = async () => {
+        try {
+            await axios.delete('/api/logout');
+            navigate("/admin");
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <div>
             <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{width: "250px"}}>
-                <a href="/" className="d-flex justify-content-center text-white text-decoration-none">
+                <a href="/admin/main" className="d-flex justify-content-center text-white text-decoration-none">
                     <span className="fs-4"><i className="bi bi-house me-2"></i>Pet-mily</span>
                 </a>
                 <hr/>
@@ -168,91 +179,7 @@ function CustomerModify(){
                             확인하세요.</label>
                         <div className="mb-2">
 
-                            <div id="ConMap" className="w-100"
-                                 style="height: 300px; position: relative; overflow: hidden; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_tile.png&quot;);">
-                                <div
-                                    style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url(&quot;https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;) 7 5, url(&quot;https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;), default;">
-                                    <div style="position: absolute;">
-                                        <div style="position: absolute; z-index: 0;"></div>
-                                        <div style="position: absolute; z-index: 1; left: 0px; top: 0px;"><img
-                                            src="https://map1.daumcdn.net/map_2d/2306uwn/L4/485/825.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -233px; top: 114px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/><img
-                                            src="https://map2.daumcdn.net/map_2d/2306uwn/L4/485/826.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 23px; top: 114px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/><img
-                                            src="https://map3.daumcdn.net/map_2d/2306uwn/L4/485/827.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 279px; top: 114px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/><img
-                                            src="https://map0.daumcdn.net/map_2d/2306uwn/L4/485/828.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 535px; top: 114px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/><img
-                                            src="https://map1.daumcdn.net/map_2d/2306uwn/L4/486/825.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -233px; top: -142px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/><img
-                                            src="https://map2.daumcdn.net/map_2d/2306uwn/L4/486/826.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 23px; top: -142px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/><img
-                                            src="https://map3.daumcdn.net/map_2d/2306uwn/L4/486/827.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 279px; top: -142px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/><img
-                                            src="https://map0.daumcdn.net/map_2d/2306uwn/L4/486/828.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 535px; top: -142px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/><img
-                                            src="https://map1.daumcdn.net/map_2d/2306uwn/L4/487/825.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -233px; top: -398px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/><img
-                                            src="https://map2.daumcdn.net/map_2d/2306uwn/L4/487/826.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 23px; top: -398px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/><img
-                                            src="https://map3.daumcdn.net/map_2d/2306uwn/L4/487/827.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 279px; top: -398px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/><img
-                                            src="https://map0.daumcdn.net/map_2d/2306uwn/L4/487/828.png" alt=""
-                                            role="presentation" draggable="false"
-                                            style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 535px; top: -398px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"/>
-                                        </div>
-                                        <div style="position: absolute; z-index: 1;"></div>
-                                        <div style="width: 755px; height: 300px; position: absolute; z-index: 1;"></div>
-                                        <div style="position: absolute; z-index: 1;">
-                                            <svg version="1.1"
-                                                 style="stroke: none; stroke-dashoffset: 0.5; stroke-linejoin: round; fill: none; transform: translateZ(0px); position: absolute; width: 3775px; height: 1500px; left: -1510px; top: -600px;"
-                                                 viewBox="0 0 3775 1500">
-                                                <defs></defs>
-                                            </svg>
-                                        </div>
-                                        <div
-                                            style="position: absolute; z-index: 1; width: 100%; height: 0px; transform: translateZ(0px);">
-                                            <div
-                                                style="position: absolute; margin: -39px 0px 0px -14px; z-index: 0; left: 377px; top: 150px;">
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    style="position: absolute; cursor: default; z-index: 1; margin: 0px 6px; height: 19px; line-height: 14px; left: 0px; bottom: 0px; color: rgb(0, 0, 0);">
-                                    <div style="color: rgb(0, 0, 0); text-align: center; font-size: 10px; float: left;">
-                                        <div
-                                            style="float: left; margin: 2px 3px 0px 4px; height: 6px; transition: width 0.1s ease 0s; border-top: none rgb(0, 0, 0); border-right: 2px solid rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0); border-left: 2px solid rgb(0, 0, 0); border-image: initial; width: 46px;">
-                                        </div>
-                                        <div
-                                            style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, 돋움, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">
-                                            100m
-                                        </div>
-                                    </div>
-                                    <div style="margin: 0px 4px; float: left;"><a target="_blank"
-                                                                                  href="http://map.kakao.com/"
-                                                                                  title="Kakao 지도로 보시려면 클릭하세요."
-                                                                                  style="float: left; width: 32px; height: 10px;"><img
-                                        src="https://t1.daumcdn.net/mapjsapi/images/m_bi_b.png" alt="Kakao 지도로 이동"
-                                        style="float: left; width: 32px; height: 10px; border: none;"/></a>
-                                        <div
-                                            style="font: 11px / 11px Arial, Tahoma, Dotum, sans-serif; float: left;"></div>
-                                    </div>
-                                </div>
-                                <div style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;"></div>
-                            </div>
                         </div>
                     </div>
                 </div>

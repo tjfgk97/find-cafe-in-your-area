@@ -21,6 +21,14 @@ module.exports = (sequelize, DataTypes) => {
             type:DataTypes.STRING(2000),
             allowNull:false
         },
+        address:{
+            type:DataTypes.STRING(2000),
+            allowNull:false
+        },
+        address_detail:{
+            type:DataTypes.STRING(2000),
+            allowNull:false
+        },
         kakao_link:{
             type:DataTypes.STRING(2000),
             allowNull:false

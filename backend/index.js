@@ -7,8 +7,9 @@ const {getUsers, Register, Login, Logout} = require("./controller/AdminInfo");
 const {refreshToken} = require("./controller/RefreshToken");
 const {getHospitalList, getHospitalThumbnailById, getHospitalInfoAndThumbnailById} = require("./controller/HospitalController");
 const db = require("./models");
+const cookieParser = require("cookie-parser");
 
-db.sequelize.sync({force: true})
+db.sequelize.sync({force: false})
     .then(()=>{
         console.log('데이터베이스 연결 성공');
     })
@@ -22,6 +23,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(bodyParser.json());
+app.use(cookieParser())
 app.use(express.json());
 
 app.get('/api/users', verifyToken, getUsers);

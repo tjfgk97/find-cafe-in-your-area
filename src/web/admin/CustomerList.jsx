@@ -10,15 +10,19 @@ function CustomerList() {
     const [users, setUsers] = useState([]);
     const navigate = useNavigate();
 
+    const [hospitalList, setHospitalList] = useState([]);
+
     useEffect(() => {
         refreshToken();
         getUsers();
+        getHospitalList();
     }, []);
 
     const refreshToken = async () => {
         try {
             const response = await axios.get('/api/token');
             setToken(response.data.accessToken);
+
             const decoded = jwtDecode(response.data.accessToken);
             setAccount(decoded.account);
             setExpire(decoded.exp);
@@ -56,9 +60,17 @@ function CustomerList() {
     }
 
     const getHospitalList = async () => {
-        const response = await axios.get('', {
-
+        const response = await axiosJWT.get('/api/getHospitalList',{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
         });
+
+        setHospitalList(response.data);
+    }
+
+    const deleteHospital = async (id) => {
+
     }
 
     //로그아웃 기능
@@ -110,7 +122,7 @@ function CustomerList() {
             <div className="d-flex flex-column w-100 p-5 vh-100">
                 <div className="d-flex align-items-center mb-4">
                     <div className="fs-3">반갑습니다, 펫밀리님.</div>
-                    <a href="./write.html" className="btn btn-primary ms-auto">동물병원 / 분양소 리스트 등록</a>
+                    <a href="/admin/customer/register" className="btn btn-primary ms-auto">동물병원 / 분양소 리스트 등록</a>
                 </div>
 
                 <div className="input-group mb-5">
@@ -132,44 +144,24 @@ function CustomerList() {
                             <th className="text-center">추가주소</th>
                             <th className="text-center">카톡채널</th>
                             <th className="text-center">코멘트</th>
-                            <th className="text-center">슬라이드이미지</th>
                             <th className="text-center"></th>
                         </tr>
                         </thead>
                         <tbody className="fs-6_5">
-                        <tr className="text-center">
-                            <td className="py-3"><a href="./detail.html?code=toprich_001_1">제이동물병원</a></td>
-                            <td className="py-3">1566-4875</td>
-                            <td className="py-3"><a className="" href="#" target="_blank">pet-mily.com/JpetGood</a></td>
-                            <td className="py-3">부산광역시 동구 범일로102번길 16-3</td>
-                            <td className="py-3">205호</td>
-                            <td className="py-3">O</td>
-                            <td className="py-3">O</td>
-                            <td className="py-3">1장</td>
-                            <td className="py-3"><a className="" href="#" target="_self">병원삭제</a></td>
-                        </tr>
-                        <tr className="text-center">
-                            <td className="py-3"><a href="./detail.html?code=toprich_001_1">제이동물병원</a></td>
-                            <td className="py-3">1566-4875</td>
-                            <td className="py-3"><a className="" href="#" target="_blank">pet-mily.com/JpetGood</a></td>
-                            <td className="py-3">부산광역시 동구 범일로102번길 16-3</td>
-                            <td className="py-3">205호</td>
-                            <td className="py-3">O</td>
-                            <td className="py-3">O</td>
-                            <td className="py-3">1장</td>
-                            <td className="py-3"><a className="" href="#" target="_self">병원삭제</a></td>
-                        </tr>
-                        <tr className="text-center">
-                            <td className="py-3"><a href="./detail.html?code=toprich_001_1">제이동물병원</a></td>
-                            <td className="py-3">1566-4875</td>
-                            <td className="py-3"><a className="" href="#" target="_blank">pet-mily.com/JpetGood</a></td>
-                            <td className="py-3">부산광역시 동구 범일로102번길 16-3</td>
-                            <td className="py-3">205호</td>
-                            <td className="py-3">O</td>
-                            <td className="py-3">O</td>
-                            <td className="py-3">1장</td>
-                            <td className="py-3"><a className="" href="#" target="_self">병원삭제</a></td>
-                        </tr>
+                        {
+                            hospitalList.map((hospital, index) => (
+                                <tr className="text-center" key={index}>
+                                    <td className="py-3"><a href={`/admin/customer/modify/${hospital.id}`}>{hospital.hospital_name}</a></td>
+                                    <td className="py-3">{hospital.hospital_phone}</td>
+                                    <td className="py-3"><a className="" href="#" target="_blank">{hospital.url}</a></td>
+                                    <td className="py-3">{hospital.address}</td>
+                                    <td className="py-3">{hospital.address_detail}</td>
+                                    <td className="py-3">{hospital.kakao_link}</td>
+                                    <td className="py-3">{hospital.comment}</td>
+                                    <td className="py-3"><a onClick={() => deleteHospital(hospital.id)} target="_self">병원삭제</a></td>
+                                </tr>
+                            ))
+                        }
                         </tbody>
                     </table>
                     <div className="col-md-12">
