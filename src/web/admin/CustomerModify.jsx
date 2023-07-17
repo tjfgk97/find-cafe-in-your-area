@@ -37,15 +37,10 @@ function CustomerModify(){
                             동물병원 / 분양소 리스트
                         </a>
                     </li>
-                    <li>
-                        <a href="#" className="nav-link text-white">
-                            삭제내역
-                        </a>
-                    </li>
                 </ul>
                 <hr/>
                 <div>
-                    <a href="#" className="d-flex align-items-center text-white text-decoration-none">
+                    <a onClick={() => Logout()} className="d-flex align-items-center text-white text-decoration-none">
                         <img src="https://github.com/mdo.png" alt="" width="32" height="32"
                              className="rounded-circle me-2"/>
                         <div className="fs-6_5">로그아웃</div>

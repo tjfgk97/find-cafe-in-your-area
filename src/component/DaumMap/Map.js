@@ -23,8 +23,8 @@ const DaumMap = ({company, setcompany}) => {
             if(status === kakao.maps.services.Status.OK){
                 setcompany({
                     address: fullAddress,
-                    x: result[0].x,
-                    y: result[0].y,
+                    lng: result[0].x,
+                    lat: result[0].y,
                 })
             }
         });

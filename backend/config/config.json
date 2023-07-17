@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
+    "username": "fphouse",
+    "password": "fphouse5000!",
     "database": "petmily",
-    "host": "127.0.0.1",
+    "host": "192.168.0.242",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "root",
+    "username": "fphouse",
+    "password": "fphouse5000!",
     "database": "petmily",
-    "host": "127.0.0.1",
+    "host": "192.168.0.242",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "root",
+    "username": "fphouse",
+    "password": "fphouse5000!",
     "database": "petmily",
-    "host": "127.0.0.1",
+    "host": "192.168.0.242",
     "dialect": "mysql"
   }
 }

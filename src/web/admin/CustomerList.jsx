@@ -60,7 +60,7 @@ function CustomerList() {
     }
 
     const getHospitalList = async () => {
-        const response = await axiosJWT.get('/api/getHospitalList',{
+        const response = await axiosJWT.get('/api/getHospitalList', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -70,7 +70,17 @@ function CustomerList() {
     }
 
     const deleteHospital = async (id) => {
-
+        try {
+            await axios.post('/api/deleteHospital', {id: id}, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            alert("삭제되었습니다.");
+            getHospitalList();
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     //로그아웃 기능
@@ -85,7 +95,7 @@ function CustomerList() {
 
     return (
         <main className="d-flex form-signin text-center bg-light"
-                  style={{minHeight: "100vh", minWidth: "100%", fontFamily: "Noto Sans KR, sans-serif"}}>
+              style={{minHeight: "100vh", minWidth: "100%", fontFamily: "Noto Sans KR, sans-serif"}}>
 
             <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
                 <a href="/" className="d-flex justify-content-center text-white text-decoration-none">
@@ -103,15 +113,10 @@ function CustomerList() {
                             동물병원 / 분양소 리스트
                         </a>
                     </li>
-                    <li>
-                        <a href="#" className="nav-link text-white">
-                            삭제내역
-                        </a>
-                    </li>
                 </ul>
                 <hr/>
                 <div>
-                    <a href="#" className="d-flex align-items-center text-white text-decoration-none">
+                    <a onClick={() => Logout()} className="d-flex align-items-center text-white text-decoration-none">
                         <img src="https://github.com/mdo.png" alt="" width="32" height="32"
                              className="rounded-circle me-2"/>
                         <div className="fs-6_5">로그아웃</div>
@@ -151,53 +156,22 @@ function CustomerList() {
                         {
                             hospitalList.map((hospital, index) => (
                                 <tr className="text-center" key={index}>
-                                    <td className="py-3"><a href={`/admin/customer/modify/${hospital.id}`}>{hospital.hospital_name}</a></td>
+                                    <td className="py-3"><a
+                                        href={`/admin/customer/modify/${hospital.id}`}>{hospital.hospital_name}</a></td>
                                     <td className="py-3">{hospital.hospital_phone}</td>
-                                    <td className="py-3"><a className="" href="#" target="_blank">{hospital.url}</a></td>
+                                    <td className="py-3"><a className="" href="#" target="_blank">{hospital.url}</a>
+                                    </td>
                                     <td className="py-3">{hospital.address}</td>
                                     <td className="py-3">{hospital.address_detail}</td>
                                     <td className="py-3">{hospital.kakao_link}</td>
                                     <td className="py-3">{hospital.comment}</td>
-                                    <td className="py-3"><a onClick={() => deleteHospital(hospital.id)} target="_self">병원삭제</a></td>
+                                    <td className="py-3"><a onClick={() => deleteHospital(hospital.id)}
+                                                            target="_self">병원삭제</a></td>
                                 </tr>
                             ))
                         }
                         </tbody>
                     </table>
-                    <div className="col-md-12">
-                        <nav className="d-flex" aria-label="...">
-                            <ul id="navigator" className="pagination ms-auto">
-                                <li id="previous_block_button" className="page-item">
-                                    <a className="page-link text-secondary point_cursor" tabIndex="-1"
-                                       aria-disabled="true">«</a>
-                                </li>
-                                <li id="previous_button" className="page-item">
-                                    <a className="page-link text-secondary point_cursor">&lt;</a>
-                                </li>
-                                <li id="page_1" className="page-item page-button active">
-                                    <a className="page-link point_cursor">1</a>
-                                </li>
-                                <li id="page_2" className="page-item page-button">
-                                    <a className="page-link point_cursor">2</a>
-                                </li>
-                                <li id="page_3" className="page-item page-button">
-                                    <a className="page-link point_cursor">3</a>
-                                </li>
-                                <li id="page_4" className="page-item page-button">
-                                    <a className="page-link point_cursor">4</a>
-                                </li>
-                                <li id="page_5" className="page-item page-button">
-                                    <a className="page-link point_cursor">5</a>
-                                </li>
-                                <li id="next_button" className="page-item">
-                                    <a className="page-link text-secondary point_cursor">&gt;</a>
-                                </li>
-                                <li id="next_block_button" className="page-item">
-                                    <a className="page-link text-secondary point_cursor">»</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
                 </div>
                 <footer id="footer" className="u-footer--bottom-sticky mt-auto fs-6_5">
                     <div className="row align-items-center">

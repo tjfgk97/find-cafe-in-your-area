@@ -5,9 +5,12 @@ const bodyParser = require("body-parser");
 const {verifyToken} = require("./middleware/VerifyToken");
 const {getUsers, Register, Login, Logout} = require("./controller/AdminInfo");
 const {refreshToken} = require("./controller/RefreshToken");
-const {getHospitalList, getHospitalThumbnailById, getHospitalInfoAndThumbnailById} = require("./controller/HospitalController");
+const {getHospitalList, getHospitalThumbnailById, getHospitalInfoAndThumbnailById, registrationHospital, urlCheck,
+    deleteHospital
+} = require("./controller/HospitalController");
 const db = require("./models");
 const cookieParser = require("cookie-parser");
+const {upload} = require("./middleware/multer.middleware");
 
 db.sequelize.sync({force: false})
     .then(()=>{
@@ -35,6 +38,12 @@ app.delete('/api/logout', Logout);
 app.get('/api/getHospitalList', getHospitalList);
 app.post('/api/getHospitalThumbnailById', getHospitalThumbnailById);
 app.post('/api/getHospitalInfoAndThumbnail', getHospitalInfoAndThumbnailById);
+
+app.post('/api/urlCheck', urlCheck);
+
+app.post('/api/registrationHospital', upload.array('image'), registrationHospital);
+
+app.post('/api/deleteHospital', deleteHospital);
 
 app.listen(port, function () {
     console.log("server works on port :" + port);
