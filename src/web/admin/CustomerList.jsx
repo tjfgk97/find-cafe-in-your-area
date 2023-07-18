@@ -11,6 +11,7 @@ function CustomerList() {
     const navigate = useNavigate();
 
     const [hospitalList, setHospitalList] = useState([]);
+    const [searchList, setSearchList] = useState([]);
 
     useEffect(() => {
         refreshToken();
@@ -66,6 +67,7 @@ function CustomerList() {
             }
         });
 
+        setSearchList(response.data);
         setHospitalList(response.data);
     }
 
@@ -93,23 +95,31 @@ function CustomerList() {
         }
     }
 
+    const handleSearch = () => {
+        const searchValue = document.getElementById("searchData").value;
+        const filtered = hospitalList.filter((hospital) => {
+            return hospital.hospital_name.indexOf(searchValue) > -1;
+        });
+        setSearchList(filtered);
+    }
+
     return (
         <main className="d-flex form-signin text-center bg-light"
               style={{minHeight: "100vh", minWidth: "100%", fontFamily: "Noto Sans KR, sans-serif"}}>
 
             <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
-                <a href="/" className="d-flex justify-content-center text-white text-decoration-none">
+                <a href="/admin/main" className="d-flex justify-content-center text-white text-decoration-none">
                     <span className="fs-4"><i className="bi bi-house me-2"></i>Pet-mily</span>
                 </a>
                 <hr/>
                 <ul className="nav nav-pills flex-column mb-auto">
                     <li>
-                        <a href="#" className="nav-link text-white">
+                        <a href="/admin/main" className="nav-link text-white">
                             홈
                         </a>
                     </li>
                     <li>
-                        <a href="#" className="nav-link text-white">
+                        <a href="/admin/main" className="nav-link text-white">
                             동물병원 / 분양소 리스트
                         </a>
                     </li>
@@ -132,7 +142,7 @@ function CustomerList() {
 
                 <div className="input-group mb-5">
                     <input type="hidden" name="" id="" value="title"/>
-                    <input id="" type="text" className="form-control py-3" placeholder="동물병원 / 분양소명을 입력하세요."
+                    <input onChange={() => handleSearch()} id="searchData" type="text" className="form-control py-3" placeholder="동물병원 / 분양소명을 입력하세요."
                            aria-label="동물병원 / 분양소명을 입력하세요."
                            aria-describedby="searchButton"/>
                     <button id="searchButton" className="btn btn-outline-secondary" type="button"><i
@@ -154,7 +164,7 @@ function CustomerList() {
                         </thead>
                         <tbody className="fs-6_5">
                         {
-                            hospitalList.map((hospital, index) => (
+                            searchList.map((hospital, index) => (
                                 <tr className="text-center" key={index}>
                                     <td className="py-3"><a
                                         href={`/admin/customer/modify/${hospital.id}`}>{hospital.hospital_name}</a></td>

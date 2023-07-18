@@ -3,24 +3,23 @@ import axios from "axios";
 
 function Header(props) {
     const handleMemberData = async () =>{
-        const response = await axios.post("/api/getMember", {
+        const response = await axios.post("/api/getHospitalInfoByUrl", {
             url: props.url
         });
 
-        sessionStorage.setItem('member', JSON.stringify(response.data));
+        sessionStorage.setItem('member', JSON.stringify(response.data.HospitalInfo));
+        sessionStorage.setItem('memberThumbnail', JSON.stringify(response.data.HospitalInfoThumbnail));
 
         const hospital_name = document.getElementById('hospital_name');
         const hospital_phone = document.getElementById('hospital_phone');
-        const goHome = document.getElementById('goHome');
         const kakao_link = document.getElementById('kakao_link');
 
-        goHome.href = `/${props.url}`;
-        hospital_name.innerHTML = response.data.hospital_name;
-        hospital_phone.href = `tel:${response.data.hospital_phone.replaceAll("-", "")}`;
-        if(response.data.kakao_link == null || response.data.kakao_link == "" || response.data.kakao_link == undefined){
+        hospital_name.innerHTML = response.data.HospitalInfo.hospital_name;
+        hospital_phone.href = `tel:${response.data.HospitalInfo.hospital_phone.replaceAll("-", "")}`;
+        if(response.data.HospitalInfo.kakao_link == null || response.data.HospitalInfo.kakao_link == "" || response.data.HospitalInfo.kakao_link == undefined){
             kakao_link.parentElement.style.display = "none";
         }
-        kakao_link.href = response.data.kakao_link;
+        kakao_link.href = response.data.HospitalInfo.kakao_link;
     }
     useEffect(() => {
         handleMemberData();

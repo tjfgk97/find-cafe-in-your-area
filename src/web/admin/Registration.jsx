@@ -101,8 +101,8 @@ function Registration() {
         formData.append("comment", hospital_comment);
         formData.append("address", hospital_address);
         formData.append("address_detail", hospital_address_detail);
-        formData.append("address_lat", hospital_address_lat);
-        formData.append("address_lng", hospital_address_lng);
+        formData.append("address_lat", enroll_company.lat);
+        formData.append("address_lng", enroll_company.lng);
 
         hospital_image.forEach((file) => {
             formData.append("image", file.files[0]);
@@ -165,18 +165,18 @@ function Registration() {
         <div>
             <form encType='multipart/form-data'>
                 <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{width: "250px"}}>
-                    <a href="/" className="d-flex justify-content-center text-white text-decoration-none">
+                    <a href="/admin/main" className="d-flex justify-content-center text-white text-decoration-none">
                         <span className="fs-4"><i className="bi bi-house me-2"></i>Pet-mily</span>
                     </a>
                     <hr/>
                     <ul className="nav nav-pills flex-column mb-auto">
                         <li>
-                            <a href="#" className="nav-link text-white">
+                            <a href="/admin/main" className="nav-link text-white">
                                 홈
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="nav-link text-white">
+                            <a href="/admin/main" className="nav-link text-white">
                                 동물병원 / 분양소 리스트
                             </a>
                         </li>
