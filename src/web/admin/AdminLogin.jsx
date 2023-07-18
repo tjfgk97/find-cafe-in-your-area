@@ -1,13 +1,32 @@
 import './Style/AdminPageCommon.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import {useCookies} from "react-cookie";
 
 function AdminLogin() {
+    const [cookies, setCookie, removeCookie] = useCookies(["userInfo"]);
+    const [isRemember, setIsRemember] = useState(false);
     const [account, setAccount] = useState("");
     const [password, setPassword] = useState("");
     const [msg, setMsg] = useState("");
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if(cookies.userInfo !== undefined){
+            document.getElementById("remember").checked = true;
+            setAccount(cookies.userInfo);
+            setIsRemember(true);
+        }
+    },[]);
+
+    const handleOnChange = (e) => {
+        setIsRemember(e.target.checked);
+        setCookie("userInfo", account, {path: "/admin"})
+        if (!e.target.checked) {
+            removeCookie("userInfo");
+        }
+    };
 
     const Auth = async (e) => {
         e.preventDefault();
@@ -40,7 +59,7 @@ function AdminLogin() {
                 <div className="form-floating"><input type="password" className="form-control" id="password"
                                                       placeholder="Password"
                                                       name="비밀번호 입력"  value={password} onChange={(e) => setPassword(e.target.value)}/><label>비밀번호</label></div>
-                <div className="checkbox mb-3"><label><input type="checkbox" value="remember-me"/> 아이디 저장</label></div>
+                <div className="checkbox mb-3"><label><input id="remember" type="checkbox" value="remember-me" onChange={handleOnChange}/> 아이디 저장</label></div>
                 <button
                     className="w-100 btn btn-lg btn-primary" type="submit" id="login">로그인
                 </button>
