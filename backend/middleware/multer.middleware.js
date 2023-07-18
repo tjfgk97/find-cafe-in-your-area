@@ -23,7 +23,7 @@ const diskStorage = multer.diskStorage({
 
 const fileNameParser = fileName => Buffer.from(fileName, 'latin1').toString('utf8');
 
-const upload = multer({ //multer settings
+const upload = multer({
     storage: diskStorage,
     fileFilter: function(req, file, callback) {
         let ext = path.extname(file.originalname);

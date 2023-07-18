@@ -17,8 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     },{
         underscored: false,
         freezeTableName:true,
-        charset: "utf8", // 한국어 설정
-        collate: "utf8_general_ci", // 한국어 설정
+        charset: "utf8",
+        collate: "utf8_general_ci",
     });
 
     AdminInfo.associate = (db) => {}

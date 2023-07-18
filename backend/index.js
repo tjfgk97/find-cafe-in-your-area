@@ -5,7 +5,8 @@ const bodyParser = require("body-parser");
 const {verifyToken} = require("./middleware/VerifyToken");
 const {getUsers, Register, Login, Logout} = require("./controller/AdminInfo");
 const {refreshToken} = require("./controller/RefreshToken");
-const {getHospitalList, getHospitalThumbnailById, getHospitalInfoAndThumbnailById, registrationHospital, urlCheck,
+const {
+    getHospitalList, getHospitalThumbnailById, getHospitalInfoAndThumbnailById, registrationHospital, urlCheck,
     deleteHospital, getHospitalInfoAndThumbnailByUrl, modifyHospital
 } = require("./controller/HospitalController");
 const db = require("./models");
@@ -14,17 +15,16 @@ const {upload} = require("./middleware/multer.middleware");
 const path = require("path");
 
 db.sequelize.sync({force: false})
-    .then(()=>{
+    .then(() => {
         console.log('데이터베이스 연결 성공');
     })
-    .catch((err)=>{
+    .catch((err) => {
         console.error(err);
     });
 
-
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser())
