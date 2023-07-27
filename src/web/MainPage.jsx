@@ -116,7 +116,7 @@ function MainPage() {
                         <div className="fw-bold">Welcome ♡</div>
                         <div className="fs-6_5 px-3 pt-1"><span>"</span>
                             <span id="comment">
-                                안녕하세요, 반갑습니다. 저희는 부산 범일동에 위치한 동물병원으로 동물을 아끼고 사랑하는 마음으로 최고의 서비스를 약속 드립니다.
+                                "안녕하세요, 저희는 고객님 주변에 있는 카페의 위치 정보를 알려드리는 서비스를 제공합니다."
                             </span>
                             <span>"</span>
                         </div>
@@ -128,12 +128,12 @@ function MainPage() {
                         <img src="/image/icons/incuiry_01.svg" className="d-inline-block" alt="..."/>
                         <div>
                             <div className="fs-6_5 ms-2">전화문의</div>
-                            <div className="fs-6_5 ms-2" id="hospital_phone_display">051-125-5561</div>
+                            <div className="fs-6_5 ms-2" id="hospital_phone_display">010-1234-5678</div>
                         </div>
                     </a>
                     <a className="align-items-center justify-content-center px-3 py-1 w-100" style={{display: "flex"}}
                        id="kakao_main_link"
-                       href="http://pf.kakao.com/_EMMFxj" target="_blank">
+                       href="https://open.kakao.com/o/s8ihnOxf" target="_blank">
                         <img src="/image/icons/incuiry_02.svg" className="d-inline-block" alt="..."/>
                         <div>
                             <div className="fs-6_5 ms-2">카톡문의</div>
@@ -149,8 +149,8 @@ function MainPage() {
                                 <div className="d-flex align-items-center w-100 py-2">
                                     <img src="/image/icons/button_01.svg" className="d-block w-25" alt="..."/>
                                     <div className="w-50 pl-5">
-                                        <div className="fw-bold mb-1 fs-5">펫 보험비교</div>
-                                        <div className="fs-6_5">각 보험사 펫보험을 한눈에 비교 분석</div>
+                                        <div className="fw-bold mb-1 fs-5">내 주변 카페 찾기</div>
+                                        <div className="fs-6_5">주변에 있는 카페를 찾아보세요.</div>
                                     </div>
                                 </div>
                                 <i className="bi bi-chevron-right me-1"></i>
@@ -163,8 +163,8 @@ function MainPage() {
                                 <div className="d-flex align-items-center w-100 py-2">
                                     <img src="/image/icons/button_04.svg" className="d-block w-25" alt="..."/>
                                     <div className="50 pl-5">
-                                        <div className="fw-bold mb-1 fs-5">펫 보험금청구</div>
-                                        <div className="fs-6_5">간편한 펫보험 청구</div>
+                                        <div className="fw-bold mb-1 fs-5">브랜드별 카페 찾기</div>
+                                        <div className="fs-6_5">브랜드별 카페의 위치를 찾아보세요.</div>
                                     </div>
                                 </div>
                                 <i className="bi bi-chevron-right me-1"></i>
@@ -177,8 +177,8 @@ function MainPage() {
                                 <div className="d-flex align-items-center w-100 py-2">
                                     <img src="/image/icons/button_05.svg" className="d-block w-25" alt="..."/>
                                     <div className="w-50 pl-5">
-                                        <div className="fw-bold mb-1 fs-5">펫 전용 카드</div>
-                                        <div className="fs-6_5">펫을 위한 전용 신용카드</div>
+                                        <div className="fw-bold mb-1 fs-5">카페 위치 비교하기</div>
+                                        <div className="fs-6_5">가고 싶은 카페의 위치를 비교해보세요.</div>
                                     </div>
                                 </div>
                                 <i className="bi bi-chevron-right me-1"></i>
@@ -191,8 +191,8 @@ function MainPage() {
                                 <div className="d-flex align-items-center w-100 py-2">
                                     <img src="/image/icons/button_03.svg" className="d-block w-25" alt="..."/>
                                     <div className="w-50 pl-5">
-                                        <div className="fw-bold mb-1 fs-5">펫 입양지원</div>
-                                        <div className="fs-6_5">펫 분양비 최대 320만원 지원!</div>
+                                        <div className="fw-bold mb-1 fs-5">길찾기</div>
+                                        <div className="fs-6_5">해당 서비스를 이용해 효율적인 동선으로 이동하세요.</div>
                                     </div>
                                 </div>
                                 <i className="bi bi-chevron-right me-1"></i>
@@ -208,8 +208,8 @@ function MainPage() {
                         </MapMarker>
                     </Map>
                     <div className="mt-3 fw-bold"><i className="bi bi-map me-1"></i>찾아오시는 길</div>
-                    <div className="mt-1 fs-6_5"><span id="address">부산광역시 동구 범일로102번길 16-3</span> <span id="address_detail">2층</span></div>
-                    <div className="fs-6_5" id="address_construct_name">제이동물병원</div>
+                    <div className="mt-1 fs-6_5"><span id="address">인천 미추홀루 매소홀로 488번길 6-32 (학익동) 태승빌딩 5층</span> <span id="address_detail">2층</span></div>
+                    <div className="fs-6_5" id="address_construct_name">find cafe in your area</div>
                 </div>
             </main>
         </Layout>

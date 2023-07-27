@@ -68,21 +68,21 @@ function Header(props) {
                     <ul className="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
                         <li className="nav-item col-6 col-md-auto">
                             <a className="nav-link p-2" onClick={() => goSupport()}>
-                                <i className="bi bi-clipboard-check me-2"></i>펫입양지원
+                                <i className="bi bi-clipboard-check me-2"></i>내 주변 카페 찾기
                             </a>
                         </li>
                         <li className="nav-item col-6 col-md-auto">
                             <a className="nav-link p-2" aria-current="true" onClick={() => goCard()}>
-                                <i className="bi bi-postcard-heart me-2"></i>펫전용카드
+                                <i className="bi bi-postcard-heart me-2"></i>브랜드별 카페 찾기
                             </a>
                         </li>
                         <li className="nav-item col-6 col-md-auto">
                             <a className="nav-link p-2" onClick={() => goComparison()}>
-                                <i className="bi bi-arrow-through-heart me-2"></i>펫보험비교</a>
+                                <i className="bi bi-arrow-through-heart me-2"></i>카페 위치 비교하기</a>
                         </li>
                         <li className="nav-item col-6 col-md-auto">
                             <a className="nav-link p-2" onClick={() => goClaims()}>
-                                <i className="me-2 bi bi-pen"></i>펫보험금청구
+                                <i className="me-2 bi bi-pen"></i>길찾기
                             </a>
                         </li>
                     </ul>
