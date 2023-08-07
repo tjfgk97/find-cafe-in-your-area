@@ -147,7 +147,9 @@ function MainPage() {
                         <a onClick={() => goComparison()} target="_self">
                             <div className="d-flex align-items-center border rounded-3 px-3">
                                 <div className="d-flex align-items-center w-100 py-2">
+                                <div class="mainsvg">
                                     <img src="/image/icons/button_01.svg" className="d-block w-25" alt="..."/>
+                                    </div>
                                     <div className="w-50 pl-5">
                                         <div className="fw-bold mb-1 fs-5">내 주변 카페 찾기</div>
                                         <div className="fs-6_5">주변에 있는 카페를 찾아보세요.</div>
@@ -161,10 +163,14 @@ function MainPage() {
                         <a onClick={() => goClaims()} target="_self">
                             <div className="d-flex align-items-center border rounded-3 px-3">
                                 <div className="d-flex align-items-center w-100 py-2">
+                                    <div class="brand">
+                                    
                                     <img src="/image/icons/button_04.svg" className="d-block w-25" alt="..."/>
+                                    
+                                    </div>
                                     <div className="50 pl-5">
                                         <div className="fw-bold mb-1 fs-5">브랜드별 카페 찾기</div>
-                                        <div className="fs-6_5">브랜드별 카페의 위치를 찾아보세요.</div>
+                                        <div className="fs-6_5">브랜드별로 위치를 찾아보세요.</div>
                                     </div>
                                 </div>
                                 <i className="bi bi-chevron-right me-1"></i>
@@ -175,10 +181,12 @@ function MainPage() {
                         <a onClick={() => goCard()} target="_self">
                             <div className="d-flex align-items-center border rounded-3 px-3">
                                 <div className="d-flex align-items-center w-100 py-2">
+                                <div class="mainsvg">
                                     <img src="/image/icons/button_05.svg" className="d-block w-25" alt="..."/>
+                                    </div>
                                     <div className="w-50 pl-5">
-                                        <div className="fw-bold mb-1 fs-5">카페 위치 비교하기</div>
-                                        <div className="fs-6_5">가고 싶은 카페의 위치를 비교해보세요.</div>
+                                        <div className="fw-bold mb-1 fs-5">커피의 품종</div>
+                                        <div className="fs-6_5">원두의 품종에 대해 알려드려요.</div>
                                     </div>
                                 </div>
                                 <i className="bi bi-chevron-right me-1"></i>
@@ -189,10 +197,12 @@ function MainPage() {
                         <a onClick={() => goSupport()} target="_self">
                             <div className="d-flex align-items-center border rounded-3 px-3">
                                 <div className="d-flex align-items-center w-100 py-2">
+                                <div class="mainsvg">
                                     <img src="/image/icons/button_03.svg" className="d-block w-25" alt="..."/>
+                                    </div>
                                     <div className="w-50 pl-5">
-                                        <div className="fw-bold mb-1 fs-5">길찾기</div>
-                                        <div className="fs-6_5">해당 서비스를 이용해 효율적인 동선으로 이동하세요.</div>
+                                        <div className="fw-bold mb-1 fs-5">커피의 종류</div>
+                                        <div className="fs-6_5">커피의 종류에 대해 알려드려요.</div>
                                     </div>
                                 </div>
                                 <i className="bi bi-chevron-right me-1"></i>

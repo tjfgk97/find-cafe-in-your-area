@@ -78,11 +78,11 @@ function Header(props) {
                         </li>
                         <li className="nav-item col-6 col-md-auto">
                             <a className="nav-link p-2" onClick={() => goComparison()}>
-                                <i className="bi bi-arrow-through-heart me-2"></i>카페 위치 비교하기</a>
+                                <i className="bi bi-arrow-through-heart me-2"></i>원산지별 원두 종류</a>
                         </li>
                         <li className="nav-item col-6 col-md-auto">
                             <a className="nav-link p-2" onClick={() => goClaims()}>
-                                <i className="me-2 bi bi-pen"></i>길찾기
+                                <i className="me-2 bi bi-pen"></i>커피의 효능
                             </a>
                         </li>
                     </ul>

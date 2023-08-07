@@ -9,7 +9,7 @@ function Support() {
             <main>
                 <hr className="bg-secondary my-0"/>
                 <div className="container mt-3">
-                    <div className="d-block row">
+                    {/* <div className="d-block row">
                         <div id="carouselExampleDark" className="carousel carousel-dark slide"
                              data-bs-ride="carousel"
                              data-bs-interval="false">
@@ -82,17 +82,20 @@ function Support() {
 
                     <div className="col-12 mb-2">
                         <img src="/image/support/NDP100_all.jpg" className="d-block w-100" alt="TY웰컴케어소개6"/>
-                    </div>
+                    </div> */}
+
+
+                        <br></br><img class="kind" src="/image/support/kind.jpg"></img>
 
                     <div className="d-xl-flex w-100 me-5 mb-4">
-                        <div className="d-flex justify-content-center align-items-center me-xl-4"><img
-                            src="/image/icons/pet_05.jpg" className="d-block w-100" alt="..."/></div>
+                        {/* <div className="d-flex justify-content-center align-items-center me-xl-4"><img
+                            src="/image/icons/pet_05.jpg" className="d-block w-100" alt="..."/></div> */}
                         <div className="d-flex flex-column justify-content-center w-100">
-                            <div className="fs-4 mb-1 text-pet">펫 입양 지원</div>
-                            <div>분양비 지원 최대 320만원 혜택! 1석 6조 TY웰컴케어 서비스를 신청하세요.</div>
+                            <br></br><div className="fs-4 mb-1 text-pet">커피의 종류</div>
+                            <div>커피의 종류에 대해 알려드려요.</div>
                             <button type="button" className="btn btn-outline-pet mt-4 py-3" data-bs-toggle="modal"
                                     data-bs-target="#comparison_modal">
-                                <i className="bi bi-check2-circle me-1"></i>신청하기
+                                <i className="bi bi-check2-circle me-1"></i>알아보기
                             </button>
                         </div>
                     </div>
